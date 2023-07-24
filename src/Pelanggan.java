@@ -21,4 +21,12 @@ class Pelanggan {
     public String getNoTelepon() {
         return noTelepon;
     }
+
+    // Constructor tanpa parameter
+    public Pelanggan() {
+        this.nama = "Unknown";
+        this.alamat = "Unknown";
+        this.noTelepon = "Unknown";
+    }
+    
 }

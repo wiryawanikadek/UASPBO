@@ -12,9 +12,25 @@ class Motor extends Kendaraan { // Variabel instans untuk menyimpan harga sewa p
         return hargaSewaPerHari;
     }
 
+    // Setter method for hargaSewaPerHari
+    public void setHargaSewaPerHari(double hargaSewaPerHari) {
+        this.hargaSewaPerHari = hargaSewaPerHari;
+    }
+
     @Override
     public double hitungBiayaSewa(int lamaSewa) { // Metode override untuk mengimplementasikan metode abstract dari class induk (Kendaraan)
         return hargaSewaPerHari * lamaSewa; // Mengembalikan hasil perkalian antara harga sewa per hari dan lama sewa
 
+    }
+    
+    // Overloading hitungBiayaSewa dengan parameter lamaSewa bertipe double
+    public double hitungBiayaSewa(double lamaSewa) {
+        return hargaSewaPerHari * lamaSewa;
+    }
+
+    // Overloading hitungBiayaSewa dengan parameter lamaSewa dan diskon
+    public double hitungBiayaSewa(int lamaSewa, double diskon) {
+        double biayaSewa = hargaSewaPerHari * lamaSewa;
+        return biayaSewa - (biayaSewa * diskon / 100);
     }
 }

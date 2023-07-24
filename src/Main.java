@@ -11,12 +11,38 @@ public class Main {
     public static void main(String[] args) {
         boolean exit = false;
 
+        // implementasi constructor tanpa parameter pada kelas Pelanggan
+        Pelanggan pelanggan1 = new Pelanggan();
+        System.out.println("Pelanggan Default:");
+        System.out.println("Nama: " + pelanggan1.getNama());
+        System.out.println("Alamat: " + pelanggan1.getAlamat());
+        System.out.println("No Telepon: " + pelanggan1.getNoTelepon());
+
+        // implementasi setter pada kelas Motor
+        Motor motor1 = new Motor("Suzuki", "Hayate", 45000);
+        System.out.println("\nMotor Sebelum Set:");
+        System.out.println("Merk: " + motor1.getMerk());
+        System.out.println("Tipe: " + motor1.getTipe());
+        System.out.println("Harga Sewa per Hari: " + motor1.getHargaSewaPerHari());
+
+        // Menggunakan setter untuk mengubah harga sewa per hari
+        motor1.setHargaSewaPerHari(48000);
+        System.out.println("\nMotor Setelah Set:");
+        System.out.println("Merk: " + motor1.getMerk());
+        System.out.println("Tipe: " + motor1.getTipe());
+        System.out.println("Harga Sewa per Hari: " + motor1.getHargaSewaPerHari());
+    
+
         // Tambahkan motor dan pelanggan awal
         daftarKendaraan.add(new Motor("Honda", "Vario", 50000));// Menambahkan objek 
         daftarKendaraan.add(new Motor("Yamaha", "NMAX", 60000));
+        daftarKendaraan.add(new Motor("Bebek", "Pespa", 60000));
+        
+
         daftarPelanggan.add(new Pelanggan("John", "JlMerdekaNo123", "08123456789"));
         daftarPelanggan.add(new Pelanggan("Jane", "Jl.ProklamasiNo.456", "087654321"));
-
+        daftarPelanggan.add(new Pelanggan("Susila", "Jl.KartiniNo.90", "08987073000"));
+       
         while (!exit) { // Mengulangi selama exit bernilai false
             System.out.println("MENU UTAMA");
             System.out.println("1. Perlihatkan Motor");
@@ -152,9 +178,9 @@ public class Main {
     private static void kembalikanMotor() {
         System.out.println("KEMBALIKAN MOTOR");
         System.out.print("Nama Pelanggan: "); // Membaca input nama pelanggan dari pengguna
-        String namaPelanggan = scanner.next();
+        String namaPelanggan = scanner.nextLine();
         System.out.print("Merk Motor yang Dikembalikan: ");
-        String merkMotor = scanner.next(); // Membaca input merk motor yang dikembalikan dari pengguna
+        String merkMotor = scanner.nextLine(); // Membaca input merk motor yang dikembalikan dari pengguna
 
 
         Pelanggan pelanggan = cariPelanggan(namaPelanggan); // Memanggil metode cariPelanggan untuk mencari objek Pelanggan berdasarkan nama pelanggan
